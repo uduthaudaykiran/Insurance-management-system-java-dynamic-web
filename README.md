@@ -63,6 +63,7 @@ InsuranceManagementSystem/
    * Right-click project → `Build Path` → `Add External Archives…` → Add `derbyclient.jar`
 2. Go to `Window` → `Show View` → `Data Source Explorer`
 3. Add Derby embedded connection with database `jdbc:derby://localhost:1527/db;create=true`
+4. Connection: Open cmd -> Downloads\db-derby-10.10.2.0-bin\bin\startnetworkserver (Type Derby Folder path) & Enter. Default port is '1527'.
 
 ---
 
