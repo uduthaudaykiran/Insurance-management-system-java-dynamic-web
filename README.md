@@ -1,4 +1,4 @@
-# Insurance & Billing Management System – Java Dynamic Web Project
+# Insurance Management System – Java Dynamic Web Project
 
 An end-to-end Java-based project developed using **Eclipse JEE Neon**, integrating **Console**, **JDBC**, **Servlets**, and **JSP** with **Apache Derby** and **Apache Tomcat** to manage customers, bills, policies, and complaints.
 
