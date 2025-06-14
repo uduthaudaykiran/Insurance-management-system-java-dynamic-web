@@ -97,8 +97,8 @@ To view/modify Derby DB:
 3. Use queries like:
 
    ```sql
-   SELECT * FROM "USER."CUSTOMER";
-   SELECT * FROM "USER."BILL";
+   SELECT * FROM "USER"."CUSTOMER";
+   SELECT * FROM "USER"."BILL";
    ```
 
 ---
