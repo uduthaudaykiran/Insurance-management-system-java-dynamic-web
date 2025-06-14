@@ -1,0 +1,53 @@
+SELECT s.schemaname, t.tablename 
+FROM sys.systables t 
+JOIN sys.sysschemas s ON t.schemaid = s.schemaid 
+WHERE t.tabletype = 'T';
+
+SELECT * FROM "USER"."CUSTOMER";
+SELECT * FROM "USER"."POLICY";
+SELECT * FROM "USER"."COMPLAINT";
+SELECT * FROM "USER"."BILL";
+
+DELETE FROM "USER"."BILL"
+WHERE billId = 2 AND consumerId = 3704794982063 AND billNumber = 12345 AND dueAmount = 50.00 AND payableAmount = 50.00;
+
+DELETE FROM "USER"."COMPLAINT"
+WHERE (complaintId = 2 AND consumerId = 3704794982063 AND complaintType = 'Billing' AND category = 'Incorrect Amount' AND landMark = 'mihan' AND customerName = 'test1' AND problem = 'testing' AND address = 'testing' AND mobileNumber = '9876543210' AND status = 'OPEN')
+   OR (complaintId = 3 AND consumerId = 3704794982063 AND complaintType = 'Billing' AND category = 'Incorrect Amount' AND landMark = 'mihan' AND customerName = 'test1' AND problem = 'testing' AND address = 'testing' AND mobileNumber = '9876543210' AND status = 'OPEN')
+   OR (complaintId = 4 AND consumerId = 3704794982063 AND complaintType = 'Billing' AND category = 'Incorrect Amount' AND landMark = 'mihan' AND customerName = 'test1' AND problem = 'testing' AND address = 'testing' AND mobileNumber = '9876543210' AND status = 'OPEN');
+
+DROP TABLE "APP"."CUSTOMER";
+DROP TABLE "APP"."POLICY";
+DROP TABLE "APP"."COMPLAINT";
+DROP TABLE "APP"."BILL";
+
+DROP TABLE "LOCALHOST"."CUSTOMER";
+DROP TABLE "LOCALHOST"."POLICY";
+DROP TABLE "LOCALHOST"."COMPLAINT";
+DROP TABLE "LOCALHOST"."BILL";
+
+ALTER TABLE Bill
+ADD COLUMN email VARCHAR(100);
+
+ALTER TABLE Bill
+ADD CONSTRAINT fk_email FOREIGN KEY (email) REFERENCES Customer(email);
+
+ALTER TABLE Bill
+DROP COLUMN email;
+
+
+
+ALTER TABLE "USER"."BILL"
+DROP COLUMN dueDate;
+
+ALTER TABLE "USER"."BILL" ADD COLUMN status VARCHAR(20) DEFAULT 'Pending';
+
+ALTER TABLE "USER"."COMPLAINT" ADD COLUMN status VARCHAR(20) DEFAULT 'Open';
+
+UPDATE "USER"."BILL" SET status = 'Paid' WHERE payable_amount = 0;
+UPDATE "USER"."BILL" SET status = 'Pending' WHERE payable_amount > 0;
+UPDATE "USER"."COMPLAINT" SET status = 'Open' WHERE status IS NULL;
+
+
+
+
